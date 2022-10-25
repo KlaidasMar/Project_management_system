@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<h1>Projektai</h1>
+<p>Mūsų projektu sąrašas:</p>
+      {% for project in projects %}
+        <div class="col-md-4 d-flex align-items-stretch">
+          <div class="card mb-4 shadow-sm">
+            {% if project.cover %}
+              <img src="{{ project.cover.url }}" class="card-img-top" alt="...">
+            {% else %}
+              <img src="{% static 'img/no-image.png' %}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+              <p class="card-text"><a href="{{ project.id }}">{{ project.pavadinimas }}</a></p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if projects.has_other_pages %}
+            <ul class="pagination pagination-sm justify-content-end">
+                {% for project in projects.paginator.page_range %}
+                    {% if projects.number == project %}
+                        <li class="page-item active">
+                            <a class="page-link">{{ project }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ project }}">{{ project }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </nav>
+</div>
+{% endblock %}

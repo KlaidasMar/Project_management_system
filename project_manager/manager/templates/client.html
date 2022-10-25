@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container client">
+        <img src="{{ client.logo.url }}" style="width:100px" class="card-img-top" alt="...">
+    <h2>{{ client.imone }}</h2>
+    <hr/>
+    </hr>
+    <h5>Vardas: <b>{{ client.vardas }}</b></h5>
+    <h5>Pavardė: <b>{{ client.pavarde }}</b></h5>
+        </br>
+    <h4>Kontaktai: <b>{{ client.kontaktai }}</b></h4>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
+  </br>
+  {% if projects %}
+  <ul>
+    {% for project in projects %}
+      <li>
+        <a href="{{ project.id }}">{{ project.pavadinimas }}</a> ({{project.klientas}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Rezultatų nėra</p>
+  {% endif %}
+
+  {% endblock %}

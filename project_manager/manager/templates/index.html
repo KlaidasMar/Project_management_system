@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h2>Projektų valdymo sistema</h2>
+  <h6>Patogesnis projektų valdymas</h6>
+  <p>Šiuo metu turime:</p>
+  <ul>
+    <li><strong>Projektai:</strong> {{ num_projects }}</li>
+    <li><strong>Viso klientu:</strong> {{ num_clients }}</li>
+    <li><strong>Darbuotojai:</strong> {{ num_workers }}</li>
+  </ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container project">
+        </br>
+    <h4>{{ project.pavadinimas }}</h4>
+    <hr/>
+    </hr>
+        <img src="{{ project.cover.url }}" style="width:500px" class="card-img-top" alt="...">
+        <p>{{ project.description | safe }}</p>
+        </br>
+    <h5>Darbu pradzia: {{ project.pradzia }}</h5>
+    <h5>Darbu pabaiga: {{ project.pabaiga }}</h5>
+        </br>
+    <h5>Klientas: {{ project.klientas.imone }}</h5>
+        </br>
+        </br>
+    <h5>Projekto vadovas: {{ project.vadovas }}</h5>
+        </br>
+    <h5>Darbuotojai: {{ project.darbuotojai }}</h5>
+        </br>
+        </br>
+        </br>
+    <h5>Projekto kaina: {{ project.saskaitos.suma }}</h5>
+    </div>
+{% endblock %}
