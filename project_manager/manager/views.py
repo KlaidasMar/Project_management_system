@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .models import Projektas, Klientas, Darbuotojas, Darbas, Saskaita
+from .models import Projektas, Klientas, Darbuotojas
 from django.shortcuts import redirect
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
