@@ -7,7 +7,7 @@
   <ul>
     {% for project in projects %}
       <li>
-        <a href="{{ project.id }}">{{ project.pavadinimas }}</a> ({{project.klientas}})
+        <a href="{%url 'project' project.id %}">{{ project.pavadinimas }}</a> ({{project.klientas}})
       </li>
     {% endfor %}
   </ul>
