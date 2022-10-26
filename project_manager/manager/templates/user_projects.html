@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Mano projektai{% endblock %}
+
+{% block content %}
+
+<h1>Mano projektai</h1>
+{% if my_projects %}
+<ul>
+{% for project in my_projects %}
+    <a href="{%url 'project' project.id %}">
+        <li class="{% if project.is_over %}text-danger{% endif %}">{{ project }}</li>
+    </a>
+{% endfor %}
+</ul>
+{% else %}
+<p>Šiuo metu projektų nėra.</p>
+{% endif %}
+{% endblock %}
