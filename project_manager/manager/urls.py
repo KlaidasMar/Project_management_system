@@ -10,4 +10,5 @@ urlpatterns = [
     path('projects/', views.projects, name='projects'),
     path('projects/<int:project_id>', views.project, name='project'),
     path('register/', views.register, name='register'),
+    path('userprojects/', views.MyProjects.as_view(), name='userprojects'),
 ]

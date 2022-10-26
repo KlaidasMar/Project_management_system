@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.views import generic
+
 from .models import Projektas, Klientas, Darbuotojas
 from django.shortcuts import redirect
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 @csrf_protect
@@ -82,3 +85,13 @@ def clients(request):
 def client(request, client_id):
     single_client = get_object_or_404(Klientas, pk=client_id)
     return render(request, 'client.html', {'client': single_client})
+
+
+class MyProjects(LoginRequiredMixin, generic.ListView):
+    model = Projektas
+    template_name = 'user_projects.html'
+    context_object_name = 'my_projects'
+    paginate_by = 2
+
+    def get_queryset(self):
+        return Projektas.objects.filter(reader=self.request.user)

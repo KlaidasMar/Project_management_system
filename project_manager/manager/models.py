@@ -16,6 +16,14 @@ class Projektas(models.Model):
     saskaitos = models.ForeignKey("Saskaita", on_delete=models.SET_NULL, null=True)
     cover = models.ImageField('Viršelis', upload_to='covers', null=True)
     description = HTMLField(null=True)
+    reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
+    @property
+    def is_over(self):
+        if self.pabaiga and date.today() > self.pabaiga:
+            return True
+        return False
+
 
     def __str__(self):
         return f"{self.pavadinimas} {self.pradzia} {self.pabaiga}"

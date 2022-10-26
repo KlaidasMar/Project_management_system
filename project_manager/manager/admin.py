@@ -4,7 +4,7 @@ from .models import Projektas, Klientas, Darbuotojas, Darbas, Saskaita
 
 # Register your models here.
 class ProjektasAdmin(admin.ModelAdmin):
-    list_display = ('pavadinimas', 'klientas', 'pradzia', 'pabaiga')
+    list_display = ('pavadinimas', 'klientas', 'pradzia', 'pabaiga', 'reader')
     list_filter = ('pavadinimas', 'klientas')
     search_fields = ('pavadinimas', 'klientas', 'pradzia', 'pabaiga')
 
